@@ -10,4 +10,10 @@ yarn start
 ```
 
 build container and push
+```
 ./build-and-push
+```
+try locally
+```
+docker run -it -p 7007:7007 urizaf/backstage-app
+```
