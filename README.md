@@ -11,9 +11,13 @@ yarn start
 
 build container and push
 ```
-./build-and-push
+make build-and-push-to-remote
 ```
-try locally
+or locally:
+```
+make build-to-k3s
+```
+run on docker
 ```
 docker run -it -p 7007:7007 urizaf/backstage-app
 ```
