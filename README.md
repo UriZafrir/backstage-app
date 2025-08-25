@@ -8,6 +8,10 @@ To start the app, run:
 yarn install
 yarn start
 ```
+only build
+```
+make docker-build
+```
 
 build container and push
 ```
@@ -19,5 +23,5 @@ make build-to-k3s
 ```
 run on docker
 ```
-docker run -it -p 7007:7007 urizaf/backstage-app
-```
+docker run -it -p 7007:7007 --env-file .env local/backstage-ap
+p```

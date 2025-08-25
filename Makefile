@@ -6,7 +6,7 @@
 
 # The name of the remote Docker registry/organization.
 # Change this to your own registry if you are not using Docker Hub.
-REMOTE_REGISTRY ?= urizaf
+REMOTE_REGISTRY ?= local
 
 # The name of the application.
 APP_NAME ?= backstage-app
@@ -43,6 +43,7 @@ build: install
 docker-build: build
 	@echo "--- Building Docker image ---"
 	docker build -f packages/backend/Dockerfile . --tag $(REMOTE_IMAGE):$(IMAGE_TAG)
+	#docker build --no-cache -f packages/backend/Dockerfile . --tag $(REMOTE_IMAGE):$(IMAGE_TAG)
 
 # Push the Docker image to the remote registry
 push-to-remote: docker-build
