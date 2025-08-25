@@ -8,3 +8,6 @@ To start the app, run:
 yarn install
 yarn start
 ```
+
+build container and push
+./build-and-push
