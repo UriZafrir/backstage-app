@@ -12,34 +12,12 @@ backend:
   # The listener can also be expressed as a single <host>:<port> string. In this case we bind to
   # all interfaces, the most permissive setting. The right value depends on your specific deployment.
   listen: ':7007'
-
-  # config options: https://node-postgres.com/apis/client
-  database:
-    client: better-sqlite3
-    connection:
-      # Backstage will create a database file for each plugin in this directory.
-      directory: /tmp/backstage-dbs
-    # client: pg
-    # connection:
-    #   host: ${POSTGRES_HOST}
-    #   port: ${POSTGRES_PORT}
-    #   user: ${POSTGRES_USER}
-    #   password: ${POSTGRES_PASSWORD}
-    #   # https://node-postgres.com/features/ssl
-    #   # you can set the sslmode configuration option via the `PGSSLMODE` environment variable
-    #   # see https://www.postgresql.org/docs/current/libpq-ssl.html Table 33.1. SSL Mode Descriptions (e.g. require)
-    #   # ssl:
-    #   #   ca: # if you have a CA file and want to verify it you can uncomment this section
-    #   #     $file: <file-path>/ca/server.crt
-
+p
 auth:
+  # see https://backstage.io/docs/auth/ to learn about auth providers
   providers:
-    github:
-      development:
-        clientId: ${AUTH_GITHUB_CLIENT_ID}
-        clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
-    guest:
-      dangerouslyAllowOutsideDevelopment: true
+    # See https://backstage.io/docs/auth/guest/provider
+    guest: {}
 
 catalog:
   # Overrides the default list locations from app-config.yaml as these contain example data.
