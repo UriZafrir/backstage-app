@@ -23,5 +23,5 @@ make build-to-k3s
 ```
 run on docker
 ```
-docker run -it -p 7007:7007 --env-file .env local/backstage-ap
+docker run -it -p 7007:7007 --env-file .env local/backstage-app
 p```
