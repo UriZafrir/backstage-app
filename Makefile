@@ -56,7 +56,9 @@ load-to-k3s: docker-build
 	@echo "--- Loading Docker image into k3s ---"
 	sudo k3s ctr images import - < <(docker save $(REMOTE_IMAGE):$(IMAGE_TAG))
 	@echo "--- Docker image loaded successfully into k3s ---"
-
+	@echo "--- Restarting Backstage pod ---"
+	kubectl delete pod -n backstage -l app.kubernetes.io/component=backstage
+	
 # Install dependencies
 install:
 	@echo "--- Installing dependencies ---"
