@@ -233,6 +233,13 @@ const defaultEntityPage = (
       {overviewContent}
     </EntityLayout.Route>
 
+    <EntityLayout.Route
+      path="/kubernetes"
+      title="Kubernetes"
+    >
+      <EntityKubernetesContent />
+    </EntityLayout.Route>
+
     <EntityLayout.Route path="/docs" title="Docs">
       {techdocsContent}
     </EntityLayout.Route>
