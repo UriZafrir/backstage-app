@@ -58,7 +58,9 @@ load-to-k3s: docker-build
 	@echo "--- Docker image loaded successfully into k3s ---"
 	@echo "--- Restarting Backstage pod ---"
 	kubectl delete pod -n backstage -l app.kubernetes.io/component=backstage
-	
+	@echo "--- Logs for the pod... ---"
+	kubectl logs -f -l app.kubernetes.io/name=backstage -n backstage
+
 # Install dependencies
 install:
 	@echo "--- Installing dependencies ---"
