@@ -153,7 +153,11 @@ const serviceEntityPage = (
       {cicdContent}
     </EntityLayout.Route>
 
-    <EntityLayout.Route path="/kubernetes" title="Kubernetes">
+    <EntityLayout.Route
+      path="/kubernetes"
+      title="Kubernetes"
+      if={isKubernetesAvailable}
+    >
       <EntityKubernetesContent refreshIntervalMs={10000} />
     </EntityLayout.Route>
 
