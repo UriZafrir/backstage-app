@@ -138,7 +138,7 @@ kubernetes:
           title: 'Local K3s Cluster'
           authProvider: 'serviceAccount'
           skipTLSVerify: true # Set to true for local development if you don't have a proper CA
-          serviceAccountToken: ${K8S_K3S_TOKEN} # Environment variable for your service account token
+          # serviceAccountToken: ${K8S_K3S_TOKEN} # Environment variable for your service account token
           # caData: ${K8S_K3S_CA_DATA} # Optional: Base64-encoded CA certificate data
           # caFile: '/path/to/your/k3s-ca.crt' # Optional: Path to your CA certificate file
 
