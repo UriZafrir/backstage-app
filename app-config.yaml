@@ -1,6 +1,6 @@
 app:
   title: Backstage App
-  baseUrl: http://localhost:3000
+  baseUrl: http://192.168.100.1:7007
 
 organization:
   name: My Company
@@ -12,7 +12,7 @@ backend:
   auth:
     keys:
       - secret: ${BACKEND_SECRET}
-  baseUrl: http://localhost:7007
+  baseUrl: http://192.168.100.1:7007
   listen:
     port: 7007
     # Uncomment the following host directive to bind to specific interfaces
@@ -23,7 +23,7 @@ backend:
     upgrade-insecure-requests: false
     connect-src: ["'self'", 'http:', 'https:']
   cors:
-    origin: http://localhost:3000
+    origin: http://192.168.100.1:7007
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
     credentials: true
   # This is for local development only, it is not recommended to use this in production
@@ -85,6 +85,8 @@ auth:
       development:
         clientId: ${AUTH_GITHUB_CLIENT_ID}
         clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
+        signIn:
+          resolver: usernameMatchingUserEntityName
     guest:
       dangerouslyAllowOutsideDevelopment: true
 
@@ -100,17 +102,17 @@ catalog:
   locations:
     # Local example data, file locations are relative to the backend process, typically `packages/backend`
     - type: file
-      target: ../../examples/entities.yaml
+      target: ./examples/entities.yaml
 
     # Local example template
     - type: file
-      target: ../../examples/template/template.yaml
+      target: ./examples/template/template.yaml
       rules:
         - allow: [Template]
 
     # Local example organizational data
     - type: file
-      target: ../../examples/org.yaml
+      target: ./examples/org.yaml
       rules:
         - allow: [User, Group]
 
