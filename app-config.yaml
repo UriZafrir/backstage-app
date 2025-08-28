@@ -140,9 +140,6 @@ kubernetes:
           name: local-k3s
           title: 'Local K3s Cluster'
           authProvider: 'serviceAccount'
-          # skipTLSVerify: true # Set to true for local development if you don't have a proper CA
-          # caData: ${K8S_K3S_CA_DATA} # Optional: Base64-encoded CA certificate data
-          # caFile: '/path/to/your/k3s-ca.crt' # Optional: Path to your CA certificate file
 
 # see https://backstage.io/docs/permissions/getting-started for more on the permission framework
 permission:
