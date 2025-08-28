@@ -1,12 +1,12 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: kubernetes-clusters
+  name: local-k3s
   description: All kubernetes resources
   annotations:
-    backstage.io/kubernetes-id: local-k3s           # matches a cluster name in config
-    # 'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=argocd'
+    # backstage.io/kubernetes-label-selector: ''
+    backstage.io/kubernetes-label-selector: app.kubernetes.io/part-of=argocd
 spec:
   type: system
   lifecycle: production
-  owner: guests # Replace with the appropriate owner
+  owner: guests
