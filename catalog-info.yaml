@@ -4,7 +4,8 @@ metadata:
   name: argocd-system
   description: All resources managed by ArgoCD
   annotations:
-    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=argocd'
+    backstage.io/kubernetes-id: local-k3s           # matches a cluster name in config
+    # 'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=argocd'
 spec:
   type: system
   lifecycle: production
