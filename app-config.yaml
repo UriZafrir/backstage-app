@@ -145,9 +145,3 @@ kubernetes:
 permission:
   # setting this to `false` will disable permissions
   enabled: true
-
-# logging:
-#   level: info # Or 'warn', 'error' for less verbose global logging
-#   filters:
-#     - name: kubernetes # This targets logs from the @backstage/plugin-kubernetes-backend plugin
-#       level: debug
