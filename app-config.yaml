@@ -136,7 +136,7 @@ kubernetes:
   clusterLocatorMethods:
     - type: 'config'
       clusters:
-        - url: https://127.0.0.1:6443 # I think this is ignored anyways since serviceAccountToken is commented out. Replace with your k3s API server URL
+        - url: https://kubernetes.default.svc # I think this is ignored anyways since serviceAccountToken is commented out. Replace with your k3s API server URL
           name: local-k3s
           title: 'Local K3s Cluster'
           authProvider: 'serviceAccount'
