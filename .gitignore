@@ -1,6 +1,4 @@
 #user added
-plugins/*
-# !plugins/kubernetes-backend
 
 # macOS
 .DS_Store
