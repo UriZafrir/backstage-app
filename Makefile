@@ -17,6 +17,12 @@ IMAGE_TAG ?= latest
 # The full name of the remote image.
 REMOTE_IMAGE = $(REMOTE_REGISTRY)/$(APP_NAME)
 
+#include .env if it exists
+ifneq (,$(wildcard ./.env))
+  include .env
+  export
+endif
+
 # ==============================================================================
 # Targets
 # ==============================================================================
