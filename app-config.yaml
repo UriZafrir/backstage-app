@@ -1,6 +1,6 @@
 app:
   title: Backstage App
-  baseUrl: http://192.168.100.1:7007
+  baseUrl: http://localhost:3000
 
 organization:
   name: My Company
@@ -10,10 +10,13 @@ backend:
   # See https://backstage.io/docs/auth/service-to-service-auth for
   # information on the format
   auth:
-    keys:
-      - secret: ${BACKEND_SECRET}
+    externalAccess:
+      - type: static
+        options:
+          token: ${BACKEND_STATIC_TOKEN}
+          subject: backstage-plugin
   # logLevel: debug
-  baseUrl: http://192.168.100.1:7007
+  baseUrl: http://localhost:7007
   listen:
     port: 7007
     # Uncomment the following host directive to bind to specific interfaces
@@ -23,8 +26,9 @@ backend:
     # a TLS-terminating proxy.
     upgrade-insecure-requests: false
     connect-src: ["'self'", 'http:', 'https:']
+    img-src: ["'self'", "https://avatars.githubusercontent.com"]
   cors:
-    origin: http://192.168.100.1:7007
+    origin: http://localhost:3000
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
     credentials: true
   # This is for local development only, it is not recommended to use this in production
