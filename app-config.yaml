@@ -26,7 +26,7 @@ backend:
     # a TLS-terminating proxy.
     upgrade-insecure-requests: false
     connect-src: ["'self'", 'http:', 'https:']
-    img-src: ["'self'", "https://avatars.githubusercontent.com"]
+    img-src: ["'self'", "https://avatars.githubusercontent.com", "data:"]
   cors:
     origin: http://localhost:3000
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
