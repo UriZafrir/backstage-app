@@ -23,12 +23,12 @@ import {
 } from '@backstage/plugin-kubernetes-node';
 import {
   ANNOTATION_KUBERNETES_AUTH_PROVIDER,
-  SERVICEACCOUNT_CA_PATH,
   FetchResponse,
   KubernetesErrorTypes,
   KubernetesFetchError,
   PodStatusFetchResponse,
 } from '@backstage/plugin-kubernetes-common';
+import { SERVICEACCOUNT_CA_PATH } from './constants';
 import fetch, { RequestInit, Response } from 'node-fetch';
 import * as https from 'https';
 import fs from 'fs-extra';

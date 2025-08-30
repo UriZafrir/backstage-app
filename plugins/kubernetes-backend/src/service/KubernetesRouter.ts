@@ -176,8 +176,9 @@ export class KubernetesRouter {
         logger.error(
           `action=retrieveObjectsByServiceId service=${serviceId}, error=${e}`,
         );
-        res.status(500).json({ error: e.message });
-      }
+        res.status(500).json({ 
+          error: e instanceof Error ? e.message : 'An unexpected error occurred' 
+        });      }
     });
 
     router.get('/clusters', async (req, res) => {

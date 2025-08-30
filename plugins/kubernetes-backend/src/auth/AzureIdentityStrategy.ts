@@ -72,7 +72,7 @@ export class AzureIdentityStrategy implements AuthenticationStrategy {
 
       this.accessToken = newAccessToken;
     } catch (err) {
-      this.logger.error('Unable to fetch Azure token', err);
+      this.logger.error('Unable to fetch Azure token', err as Error);
 
       // only throw the error if the token has already expired, otherwise re-use existing until we're able to fetch a new token
       if (this.tokenExpired()) {

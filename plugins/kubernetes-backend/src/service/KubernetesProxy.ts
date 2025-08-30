@@ -22,10 +22,10 @@ import {
 } from '@backstage/errors';
 import {
   ANNOTATION_KUBERNETES_AUTH_PROVIDER,
-  SERVICEACCOUNT_CA_PATH,
   kubernetesProxyPermission,
   KubernetesRequestAuth,
 } from '@backstage/plugin-kubernetes-common';
+import { SERVICEACCOUNT_CA_PATH } from './constants';
 import { AuthorizeResult } from '@backstage/plugin-permission-common';
 import type { Cluster } from '@kubernetes/client-node';
 import { createProxyMiddleware, RequestHandler } from 'http-proxy-middleware';
