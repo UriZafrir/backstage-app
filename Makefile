@@ -37,13 +37,13 @@ build-to-k3s: load-to-k3s
 build-backend: install
 	@echo "--- Running prerequisite build steps for backend ---"
 	yarn tsc
-	yarn workspace backend build
+	yarn workspace backend build --config ../../app-config.production.yaml
 	@echo "--- Backend build steps complete ---"
 
 # Build the frontend package
 build-frontend: install
 	@echo "--- Building frontend ---"
-	yarn workspace app build
+	yarn workspace app build --config ../../app-config.production.yaml
 	@echo "--- Frontend build complete ---"
 
 # Build the backend Docker image
@@ -75,7 +75,8 @@ load-to-k3s: docker-build
 	sudo k3s ctr images import - < <(docker save $(REMOTE_FRONTEND_IMAGE):$(IMAGE_TAG))
 	@echo "--- Docker images loaded successfully into k3s ---"
 	@echo "--- Restarting Backstage pods ---"
-	kubectl delete pod -n backstage -l app.kubernetes.io/component=backstage
+	kubectl delete pod -n backstage -l app.kubernetes.io/name=backstage-app
+	kubectl delete pod -n backstage -l app.kubernetes.io/name=backstage-backend
 	sleep 1
 	@echo "--- Logs for the pods... ---"
 # 	kubectl logs -f -l app.kubernetes.io/name=backstage -n backstage
