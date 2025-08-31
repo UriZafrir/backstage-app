@@ -78,8 +78,8 @@ load-to-k3s: docker-build
 	kubectl delete pod -n backstage -l app.kubernetes.io/name=backstage-app
 	kubectl delete pod -n backstage -l app.kubernetes.io/name=backstage-backend
 	sleep 1
-	@echo "--- Logs for the pods... ---"
-# 	kubectl logs -f -l app.kubernetes.io/name=backstage -n backstage
+	@echo "--- Logs for the backend... ---"
+	kubectl logs -f -l app.kubernetes.io/name=backstage-backend -n backstage
 
 # Install dependencies
 install:
