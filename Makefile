@@ -37,13 +37,13 @@ build-to-k3s: load-to-k3s
 build-backend: install
 	@echo "--- Running prerequisite build steps for backend ---"
 	yarn tsc
-	yarn workspace backend build --config ../../app-config.production.yaml
+	yarn workspace backend build --config ../../app-config.yaml --config ../../app-config.production.yaml
 	@echo "--- Backend build steps complete ---"
 
 # Build the frontend package
 build-frontend: install
 	@echo "--- Building frontend ---"
-	yarn workspace app build --config ../../app-config.production.yaml
+	yarn workspace app build --config ../../app-config.yaml --config ../../app-config.production.yaml
 	@echo "--- Frontend build complete ---"
 
 # Build the backend Docker image
