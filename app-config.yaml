@@ -1,6 +1,6 @@
 app:
   title: Backstage App
-  baseUrl: http://192.168.0.105:3000
+  baseUrl: http://${baseUrl}:3000
 
 organization:
   name: My Company
@@ -16,7 +16,7 @@ backend:
           token: ${BACKEND_STATIC_TOKEN}
           subject: backstage-plugin
   # logLevel: debug
-  baseUrl: http://192.168.0.105:7007
+  baseUrl: http://${baseUrl}:7007
   listen:
     port: 7007
     host: 0.0.0.0  # to access dev server from outside
