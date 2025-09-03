@@ -30,7 +30,7 @@ backend:
     img-src: ["'self'", "https://avatars.githubusercontent.com", "data:"]
   cors:
     # origin: http://localhost:3000
-    origin: '*'  # for development Allows requests from any origin
+    origin: http://${baseUrl}:3000  # for development Allows requests from any origin
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
     credentials: true
   # This is for local development only, it is not recommended to use this in production
