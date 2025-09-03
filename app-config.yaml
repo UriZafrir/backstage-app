@@ -1,6 +1,6 @@
 app:
   title: Backstage App
-  baseUrl: http://localhost:3000
+  baseUrl: http://192.168.0.105:3000
 
 organization:
   name: My Company
@@ -16,9 +16,10 @@ backend:
           token: ${BACKEND_STATIC_TOKEN}
           subject: backstage-plugin
   # logLevel: debug
-  baseUrl: http://localhost:7007
+  baseUrl: http://192.168.0.105:7007
   listen:
     port: 7007
+    host: 0.0.0.0  # to access dev server from outside
     # Uncomment the following host directive to bind to specific interfaces
     # host: 127.0.0.1
   csp:
@@ -28,7 +29,8 @@ backend:
     connect-src: ["'self'", 'http:', 'https:']
     img-src: ["'self'", "https://avatars.githubusercontent.com", "data:"]
   cors:
-    origin: http://localhost:3000
+    # origin: http://localhost:3000
+    origin: '*'  # for development Allows requests from any origin
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
     credentials: true
   # This is for local development only, it is not recommended to use this in production
