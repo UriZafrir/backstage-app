@@ -7,6 +7,8 @@
  */
 
 import { createBackend } from '@backstage/backend-defaults';
+import { packagePathMocks } from '@backstage/backend-plugin-api';
+import { resolve as resolvePath } from 'path';
 
 const backend = createBackend();
 
@@ -63,6 +65,9 @@ backend.add(import('@backstage/plugin-kubernetes-backend'));
 
 // notifications and signals plugins
 backend.add(import('@backstage/plugin-notifications-backend'));
-backend.add(import('@backstage/plugin-signals-backend'));
+packagePathMocks.set('app', (paths: string[]) => {
+  const appDir = resolvePath(process.cwd(), 'packages/app');
+  return resolvePath(appDir, ...paths);
+});
 
 backend.start();
