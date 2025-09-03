@@ -30,3 +30,7 @@ to debug plugins and change them see https://backstage.io/docs/next/tooling/loca
 
 
 LOG_LEVEL=debug yarn backstage-cli repo start --link ../../../backstage
+
+LOG_LEVEL=debug yarn backstage-cli repo start --link ../../../backstage > ../../../backend.log 
+tail -f backend.log
+cat ../backend.log | grep kubernetes
